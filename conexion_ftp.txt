@@ -1,9 +1,9 @@
 Mi página web:
 
-Conexion FTP
+Conexión FTP
 
-servidor: files.000webhost.com
-nombre usuario: rubycode
-contraseña: daniel123
+Servidor: files.000webhost.com
+Nombre usuario: rubycode
+Contraseña: daniel123
 
 Información de Base de Datos
