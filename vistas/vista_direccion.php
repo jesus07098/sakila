@@ -1,25 +1,65 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title><?php echo $nombrePagina; ?></title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
-</head>
+<?php include_once "componentes/comp_head.php" ?>
 <body>
-<p>Bienvenidos a la pagina <?php echo $nombrePagina; ?></p>
-<ul class="nav">
-    <li class="nav-item">
-        <a class="nav-link active" href="index.php">Inicio</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="actor.php">Actor</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-    </li>
-</ul>
+
+<!-- Barra superior -->
+<nav class="navbar navbar-light bg-dark">
+    <a class="navbar-brand text-white container-fluid" href="#">Sakila</a>
+</nav>
+<!-- Contenido -->
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3">
+            <?php include_once "componentes/comp_menu.php" ?>
+        </div>
+
+        <div class="col-md-9">
+            <h3> <?php echo $nombrePagina; ?> </h3>
+
+            <hr>
+            <div class="row">
+                <div class="col-md-5">
+                    <form action="direccion.php" method="get">
+                        <div class="mb-3">
+                            <label for="direccion">Dirección: </label>
+                            <input type="text" name="direccion" id="direccion" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="direccion2">Direccion 2: </label>
+                            <input type="text" name="direccion2" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="distrito">Distrito: </label>
+                            <input type="text" name="distrito" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="distrito">Distrito: </label>
+                            <select  name="distrito" class="form-select">
+                                <option value="">Listado de la ciudad</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="codigoPostal">Código Postal: </label>
+                            <input type="text" name="codigoPostal" id="codigoPostal" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="telefono">Teléfono: </label>
+                            <input type="tel" name="telefono" id="telefono" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="ubicacion">Ubicación: </label>
+                            <input type="text" name="ubicacion" id="ubicacion" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <button type="submit" name="guardarDireccion" class="btn btn-success">Guardar datos</button>
+                        </div>
+
+                    </form>
+                </div>
+        </div>
+    </div>
+</div>
+
+
 </body>
 </html>
