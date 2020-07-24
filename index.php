@@ -1,15 +1,19 @@
 <?php
 
 require_once "funciones/helpers.php";
+/*
+include_once "modelos/modelo_actor.php";
 
-$nombrePagina="Principal";
+$actores=obtenerActores($conexion);
+
+imprimirArray($actores);
+*/
+$nombrePagina = "Principal";
 
 
-$nombre= $_GET['nombre'] ?? "";
+$nombre = $_POST['nombre'] ?? "";
 
 
-
-
-
+//Incluir la vista
 include_once "vistas/vista_principal.php";
 

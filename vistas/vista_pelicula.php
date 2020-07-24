@@ -2,101 +2,187 @@
 <body>
 
 <!-- Barra superior -->
-<nav class="navbar navbar-light bg-dark">
-    <a class="navbar-brand text-white container-fluid" href="#">Sakila</a>
-</nav>
+
 <!-- Contenido -->
 
-<div class="container-fluid">
+<div class="">
     <div class="row">
-        <div class="col-md-3">
+        <input type="checkbox" id="check">
+        <label for="check">
+            <i class="fas fa-bars" id="btn"></i>
+            <i class="fas fa-times" id="cancel"></i>
+        </label>
+        <div class="" id="sidebar">
+            <header>Sakila</header>
             <?php include_once "componentes/comp_menu.php" ?>
         </div>
+        <section class="cuerpo mt-2">
+            <div class="container">
+                <div class="col-md-10 ">
+                    <h3 id="espacio-titulo"> <?php echo $nombrePagina; ?> </h3>
+                    <hr>
+                    <div class="row ">
+                        <div class="col-md-5">
+                            <form action="pelicula.php" method="post">
+                                <div class="mb-3 ">
+                                    <label for="titulo">Título: </label>
+                                    <input value="<?= $titulo  ?>" type="text" name="titulo" id="titulo" class="form-control">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="Descripcion">Descripción</label>
+                                    <input value="<?= $descripcion  ?>" type="text" name="descripcion" id="descripcion" class="form-control">
+                                </div>
+                                <div class="mb-3">
 
-        <div class="col-md-9">
-            <h3> <?php echo $nombrePagina; ?> </h3>
-            <hr>
-            <div class="row">
-                <div class="col-md-5">
-                    <form action="pelicula.php" method="get">
-                        <div class="mb-3">
-                            <label for="titulo">Título: </label>
-                            <input type="text" name="direccion" id="titulo" class="form-control">
-                        </div>
-                        <div class="mb-3">
-                            <label for="direccion2">Direccion 2: </label>
-                            <input type="text" name="direccion2" class="form-control">
-                        </div>
-                        <div class="mb-3">
-                            <label for="distrito">Distrito: </label>
-                            <input type="text" name="distrito" class="form-control">
-                        </div>
-                        <div class="mb-3">
-                            <label for="distrito">Distrito: </label>
-                            <select  name="distrito" class="form-select">
-                                <option value="">Listado de la ciudad</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="codigoPostal">Código Postal: </label>
-                            <input type="text" name="codigoPostal" id="codigoPostal" class="form-control">
-                        </div>
-                        <div class="mb-3">
-                            <label for="telefono">Teléfono: </label>
-                            <input type="tel" name="telefono" id="telefono" class="form-control">
-                        </div>
-                        <div class="mb-3">
-                            <label for="ubicacion">Ubicación: </label>
-                            <input type="text" name="ubicacion" id="ubicacion" class="form-control">
-                        </div>
-                        <div class="mb-3">
-                            <button type="submit" name="guardarDireccion" class="btn btn-success">Guardar datos</button>
-                        </div>
+                                    <label for="anoLanzamiento" class="form-label">Año de Lanzamiento</label>
+                                    <input class="form-control" name="anoLanzamiento" list="listadoAnios" id="anoLanzamiento" placeholder="Digite el ano de Lanzamiento...">
+                                    <datalist id="listadoAnios">
+                                        <?php
+                                        for($year=date("Y"); $year>=1900; $year--)
+                                            echo "<option value='{$year}'>"
 
-                    </form>
-                </div>
-            </div><hr>
-            <div class="row">
-                <div class="col-md-5">
-                    <form action="pelicula.php" method="get">
-                        <div class="mb-3">
-                            <label for="titulo">Título: </label>
-                            <input type="text" name="titulo" id="titulo" class="form-control">
-                        </div>
-                        <div class="mb-3">
-                            <label for="descripción">Descripción: </label>
-                            <input type="descripción" name="descripción" class="form-control">
-                        </div>
-                        <div class="mb-3">
-                            <label for="anoLanzamiento">ano Lanzamiento: </label>
-                            <input type="text" name="anoLanzamiento" class="form-control">
-                        </div>
-                        <div class="mb-3">
-                            <label for="distrito">Distrito: </label>
-                            <select  name="distrito" class="form-select">
-                                <option value="">Listado de la ciudad</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="codigoPostal">Código Postal: </label>
-                            <input type="text" name="codigoPostal" id="codigoPostal" class="form-control">
-                        </div>
-                        <div class="mb-3">
-                            <label for="telefono">Teléfono: </label>
-                            <input type="tel" name="telefono" id="telefono" class="form-control">
-                        </div>
-                        <div class="mb-3">
-                            <label for="ubicacion">Ubicación: </label>
-                            <input type="text" name="ubicacion" id="ubicacion" class="form-control">
-                        </div>
-                        <div class="mb-3">
-                            <button type="submit" name="guardarDireccion" class="btn btn-success">Guardar datos</button>
-                        </div>
+                                        ?>
+                                    </datalist>
 
-                    </form>
+
+
+                                </div>
+                                <div class="mb-3">
+                                    <label for="idioma">Idioma: </label>
+                                    <select name="idioma" class="form-select">
+                                        <option value="" selected disabled>Seleccione un idioma:</option>
+                                        <?php
+                                        foreach ($idiomas as $idioma) {
+                                            echo "<option value=\"{$idioma['language_id']}\" >{$idioma['name']}</option>";
+                                        }
+
+                                        ?>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="idioma2">Idioma original: </label>
+                                    <select name="idioma2" id="idioma2" class="form-select">
+                                        <option value="" selected disabled>Seleccione un idioma:</option>
+                                        <?php
+                                        foreach ($idiomas as $idioma) {
+                                            echo "<option value=\"{$idioma['language_id']}\" >{$idioma['name']}</option>";
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="rentaDuracion">Duración de renta: </label>
+                                    <input value="<?= $rentaDuracion  ?>" type="text" name="rentaDuracion" id="rentaDuracion" class="form-control">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="tasaArrendamiento">Tasa de arrendamiento: </label>
+                                    <input value="<?= $tasaArrendamiento  ?>" type="tel" name="tasaArrendamiento" id="tasaArrendamiento"
+                                           class="form-control">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="tamano">Tamaño: </label>
+                                    <input value="<?= $tamano  ?>" type="text" name="tamano" id="tamano" class="form-control">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="costoReemplazo">Costo de reemplazo: </label>
+                                    <input value="<?= $costoReemplazo  ?>" type="text" name="costoReemplazo" id="costoReemplazo" class="form-control">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="clasificacion">Clasificacion: </label>
+                                    <select name="clasificacion" id="clasificacion" class="form-select">
+                                        <option value="" >Elige una clasificación</option>
+                                        <?php
+                                        $ratings = ['G', 'PG', 'PG-13', 'R', 'NC-17'];
+                                        foreach($ratings as  $rating){
+                                            echo "<option value=\"{$rating}\" >{$rating}</option>";
+                                        }
+                                        ?>
+                                    </select>
+
+                                </div>
+                                <div class="mb-3">
+                                    <label for="caracteristicasEspeciales">Característica Especial: </label>
+                                    <select name="caracteristicasEspeciales[]" id="caracteristicasEspeciales" class="form-select" multiple>
+                                        <option value="" disabled selected>Elige una Caracteristica Especial</option>
+                                        <?php
+                                        $features = ['Trailers', 'Commentaries', 'Deleted Scenes', 'Behind the Scenes'];
+                                        foreach($features as  $feature){
+                                            echo "<option value=\"{$feature}\" >{$feature}</option>";
+                                        }
+                                        ?>
+                                    </select>
+
+                                </div>
+                                <div class="mb-3">
+                                    <button type="submit" name="guardarPelicula" class="btn green accent-4">Guardar
+                                    </button>
+                                </div>
+                            </form>
+                            <?php
+                            if (isset($error)) {
+                                echo "<div class=\"alert alert-danger alert-dismissible fade show\" role=\"alert\">
+                                  {$error}
+                                  <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+                                    <span aria-hidden=\"true\">&times;</span>
+                                  </button>
+                                </div>";
+                            }
+                            if (isset($insertadoPelicula)) {
+                                echo "<div class=\"alert alert-success alert-dismissible fade show\" role=\"alert\">
+                                   Los datos de la pelicula se  han insertado correctamente...
+                                  <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+                                    <span aria-hidden=\"true\">&times;</span>
+                                  </button>
+                                </div>";
+
+                            }
+                            ?>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table class="table">
+                                <thead>
+                                <th scope="col">ID película</th>
+                                <th scope="col">Título</th>
+                                <th scope="col">Descripción 2</th>
+                                <th scope="col">Año lanzamiento</th>
+                                <th scope="col">Idioma principal</th>
+                                <th scope="col">Otro idioma</th>
+                                <th scope="col">Duración de alquiler</th>
+                                <th scope="col">Tasa de arrendamiento</th>
+                                <th scope="col">Tamaño</th>
+                                <th scope="col">Costo de reemplazo</th>
+                                <th scope="col">Clasificación</th>
+                                <th scope="col">Características especiales</th>
+                                </thead>
+                                <tbody>
+                                <?php
+                                foreach ($infoPeliculas as $infoPelicula) {
+                                    echo "<tr>
+                            <th scope=\"row\">{$infoPelicula['film_id']}</th>
+                           <td>{$infoPelicula['title']}</td>
+                           <td>{$infoPelicula['description']}</td>
+                           <td>{$infoPelicula['release_year']}</td>
+                           <td>{$infoPelicula['idioma_oficial']}</td>
+                           <td>{$infoPelicula['idioma_sec']}</td>
+                           <td>{$infoPelicula['rental_duration']}</td>
+                           <td>{$infoPelicula['rental_rate']}</td>
+                           <td>{$infoPelicula['length']}</td>
+                           <td>{$infoPelicula['replacement_cost']}</td>
+                           <td>{$infoPelicula['rating']}</td>
+                           <td>{$infoPelicula['special_features']}</td>    
+                       </tr>";
+                                }
+                                ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
     </div>
 </div>
 

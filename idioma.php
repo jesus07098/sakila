@@ -1,17 +1,38 @@
 <?php
 require_once "funciones/helpers.php";
-
+require_once 'modelos/modelo_idioma.php';
 $nombrePagina = "Idioma";
 
-$direccion= $_GET['nombre'] ?? "";
+$nombreIdioma = $_POST['nombreIdioma'] ?? "";
+
+try {
+    if (isset($_POST['guardarIdioma'])) {
+        //codigo para guardar en la BD
 
 
-//Aseguranos de que el usuario ha hecho click en el boton
+        if (empty($nombreIdioma)) {
+            throw new Exception("El idioma está vacio");
+        }
 
-if(isset($_GET['guardarDireccion'])){
-    //codigo para guardar en la BD
 
+        $datos = compact('nombreIdioma');
+        //Insertar los datos
+        $insertado = insertarIdioma($conexion, $datos);
+        $mensaje = "Datos insertados correctamente...";
+        if (!$insertado) {
+            throw new Exception("Ocurrió un error al insertar los datos del Idioma...");
+        }
+        //redireccionar la pagina
+
+        redireccionar("idioma.php");
+
+    }
+} catch (Exception $e) {
+    $error = $e->getMessage();
 }
 
 
-incluir_vista("idioma");
+$idiomas = obtenerIdioma($conexion);
+
+
+include_once "vistas/vista_idioma.php";

@@ -13,7 +13,7 @@
             <i class="fas fa-times" id="cancel"></i>
         </label>
         <div class="" id="sidebar">
-            <header>Sakila</header>
+            <header> Sakila</header>
             <?php include_once "componentes/comp_menu.php" ?>
         </div>
         <section class="cuerpo mt-2">
@@ -23,18 +23,30 @@
                     <hr>
                     <div class="row">
                         <div class="col-md-5">
-                            <form action="idioma.php" method="post">
+                            <form action="categoria.php" method="post">
                                 <div class="mb-3">
-                                    <label for="nombreIdioma">Nombre: </label>
-                                    <input type="text" name="nombreIdioma" id="nombreIdioma" class="form-control"
-                                           placeholder="Digite el idioma">
+                                    <label for="nombreCategoria">Nombre: </label>
+                                    <input type="text" name="nombreCategoria" id="nombreCategoria" class="form-control"
+                                           placeholder="Digite la categoría">
                                 </div>
+
                                 <div class="mb-3">
-                                    <button type="submit" name="guardarIdioma" class="btn teal green accent-4">Guardar
+                                    <button type="submit" name="guardarCategoria" class="btn teal green accent-4">
+                                        Guardar
                                     </button>
                                 </div>
 
                             </form>
+                            <?php
+                            if (isset($error)) {
+                                echo "<div class=\"alert alert-danger alert-dismissible fade show\" role=\"alert\">
+                                  {$error}
+                                  <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+                                    <span aria-hidden=\"true\">&times;</span>
+                                  </button>
+                                </div>";
+                            }
+                            ?>
                         </div>
                     </div>
                     <hr>
@@ -43,16 +55,15 @@
                             <table class="table">
                                 <thead>
                                 <th scope="col">ID</th>
-                                <th scope="col">Idioma</th>
+                                <th scope="col">Nombre</th>
                                 </thead>
                                 <tbody>
                                 <?php
-                                foreach ($idiomas as $idioma) {
+                                foreach ($categorias as $categoria) {
                                     echo "<tr>
-                            <th scope=\"row\">{$idioma['language_id']}</th>
-                            <td>{$idioma['name']}</td>
-                          
-                        </tr>";
+                            <th scope=\"row\">{$categoria['category_id']}</th>
+                           <td>{$categoria['name']}</td>
+                       </tr>";
                                 }
                                 ?>
                                 </tbody>
@@ -64,5 +75,7 @@
     </div>
 
 </div>
+
+
 </body>
 </html>

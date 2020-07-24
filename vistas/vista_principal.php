@@ -1,28 +1,25 @@
 <?php include_once "componentes/comp_head.php" ?>
-<body>
+<body background="../static/img/131.jpg">
 
 <!-- Barra superior -->
- <nav class="navbar navbar-light bg-dark">
-     <a class="navbar-brand text-white container-fluid" href="#">Sakila</a>
- </nav>
- <!-- Contenido -->
+<div>
+    <div class="row">
+        <!-- Contenido -->
+        <input type="checkbox" id="check">
+        <label for="check">
+            <i class="fas fa-bars" id="btn"></i>
+            <i class="fas fa-times" id="cancel"></i>
+        </label>
+        <div class="" id="sidebar">
+            <header>Sakila</header>
+            <?php include_once "componentes/comp_menu.php" ?>
+        </div>
 
- <div class="container-fluid">
-     <div class="row">
-         <div class="col-md-3">
-             <?php include_once "componentes/comp_menu.php" ?>
-         </div>
+        <div class="col-md-9">
 
-         <div class="col-md-9">
-                <h3> <?php echo $nombrePagina; ?> </h3>
+        </div>
 
-
-
-         </div>
-
-     </div>
- </div>
-
-
+    </div>
+</div>
 </body>
 </html>
