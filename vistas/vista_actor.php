@@ -20,7 +20,7 @@
 
         <div class="container">
 
-            <div class="col-md-7 offset-md-2">
+            <div class="col-md-7 ">
                 <h3 id="espacio-titulo"><i class="fas fa-user"></i> <?php echo $nombrePagina; ?> </h3>
                 <hr>
                 <div class="row">
@@ -50,9 +50,9 @@
                                   </button>
                                 </div>";
                         }
-                        if (isset($actorInsertado)) {
+                        if (isset($mensaje)) {
                             echo "<div class=\"alert alert-success alert-dismissible fade show\" role=\"alert\">
-                                   Los datos del actores se  han insertado correctamente...
+                                   $mensaje
                                   <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
                                     <span aria-hidden=\"true\">&times;</span>
                                   </button>
@@ -65,11 +65,13 @@
                 <hr>
                 <div class="row">
                     <div class="col-md-12">
+                        <form action="" method="post">
                         <table class="table highlight striped centered">
                             <thead class="">
                             <th scope="col">ID</th>
                             <th scope="col">Nombre</th>
                             <th scope="col">Apellido</th>
+                            <th scope="col">Acciones</th>
                             </thead>
                             <tbody>
                             <?php
@@ -78,11 +80,13 @@
                             <th scope=\"row\">{$actor['actor_id']}</th>
                            <td>{$actor['first_name']}</td>
                            <td>{$actor['last_name']}</td>
+                           <td><a class='text-danger' href='?accion=eliminar&id={$actor['actor_id']}'><i class='fas fa-trash'></i></a></td>
                        </tr>";
                             }
                             ?>
                             </tbody>
                         </table>
+                        </form>
                     </div>
                 </div>
             </div>

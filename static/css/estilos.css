@@ -13,6 +13,7 @@
 
 /* SIDEBAR ESTILOS */
 #sidebar {
+    padding: 0;
     position: fixed;
     width: 240px;
     left: -240px;
@@ -39,7 +40,7 @@
     padding: 16px 0 16px 30px;
     box-sizing: border-box;
     border-bottom: 1px solid black;
-    border-top: 1px solid rgba(255, 255, 255, .1);
+    border-top: 1px solid rgba(232, 30, 30, 0.1);
     border-left: 5px solid transparent;
     font-family: 'Open Sans', sans-serif;
     transition: all .5s ease;
@@ -117,7 +118,6 @@ section.cuerpo {
     -ms-transition: all .5s;
     -o-transition: all .5s;
     transition: all .5s;
-
 }
 
 /* ESTILO DE TABLAS*/

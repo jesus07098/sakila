@@ -42,7 +42,7 @@ try {
         if (empty($activo)) {
             //throw new Exception("El email está vacio");
         }
-        $datos = compact('direccion', 'direccion2', 'distrito', 'ciudad', 'codigoPostal', 'telefono', 'ubicacion');
+        $datos = compact('direccion', 'direccion2', 'distrito', 'ciudad', 'codigoPostal', 'telefono');
         //Insertar los datos
         $direccionInsertada = insertarDireccion($conexion, $datos);
 

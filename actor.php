@@ -37,6 +37,20 @@ try {
 
 
     }
+   if(isset($_GET['accion'])){
+     $idActor= $_GET['id'] ?? "";
+     if(empty($idActor)){
+         throw new Exception("El valor del id está vacío");
+     }
+     $datos= compact('idActor');
+     $mensaje = "Datos insertados correctamente...";
+     imprimirArray($datos);
+     $eliminado= eliminarActores($conexion, $datos);
+     $mensaje= "Datos eliminados correctamente";
+     if(!$eliminado){
+  throw new Exception("No se pudieron eliminar los datos");
+     }
+   }
 } catch (Exception $e) {
     $error = $e->getMessage();
 }

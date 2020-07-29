@@ -18,7 +18,7 @@
         </div>
         <section class="cuerpo mt-2">
             <div class="container">
-                <div class="col-md-10 ">
+                <div class="col-md-10">
                     <h3 id="espacio-titulo"> <?php echo $nombrePagina; ?> </h3>
                     <hr>
                     <div class="row ">
@@ -90,7 +90,7 @@
                                 <div class="mb-3">
                                     <label for="clasificacion">Clasificacion: </label>
                                     <select name="clasificacion" id="clasificacion" class="form-select">
-                                        <option value="" >Elige una clasificación</option>
+                                        <option value="" disabled selected >Elige una clasificación</option>
                                         <?php
                                         $ratings = ['G', 'PG', 'PG-13', 'R', 'NC-17'];
                                         foreach($ratings as  $rating){
@@ -141,7 +141,7 @@
                     </div>
                     <hr>
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-10">
                             <table class="table">
                                 <thead>
                                 <th scope="col">ID película</th>
@@ -173,12 +173,14 @@
                            <td>{$infoPelicula['replacement_cost']}</td>
                            <td>{$infoPelicula['rating']}</td>
                            <td>{$infoPelicula['special_features']}</td>    
-                       </tr>";
+                             </tr>";
                                 }
                                 ?>
                                 </tbody>
                             </table>
+
                         </div>
+
                     </div>
                 </div>
             </div>

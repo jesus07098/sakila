@@ -62,10 +62,6 @@
                                     <input type="tel" name="telefono" id="telefono" class="form-control">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="ubicacion">Ubicación: </label>
-                                    <input type="text" name="ubicacion" id="ubicacion" class="form-control">
-                                </div>
-                                <div class="mb-3">
                                     <button type="submit" name="guardarDireccion" class="btn teal green accent-4">
                                         Guardar
                                     </button>
