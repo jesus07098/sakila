@@ -7,3 +7,20 @@ Nombre usuario: rubycode
 Contraseña: daniel123
 
 Información de Base de Datos
+
+//Valores de mi base de datos local//
+
+$host = "localhost";
+$dbname = "sakila";
+$usuario = "root";
+$password = "Daniel123*";
+
+
+//Valores de mi base de datos de 000webhost//
+
+if($_SERVER['SERVER_NAME'] === 'rubycode.000webhostapp.com') {
+    $host = "localhost";
+    $dbname = "id12551219_sakila";
+    $usuario = "id12551219_jesus";
+    $password = "_WZ]4s#pyN<GG-PQ";
+}
