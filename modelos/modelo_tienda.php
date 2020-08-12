@@ -14,7 +14,9 @@ function obtenerInfoTiendas($conexion)
 left join address as a on sto.address_id = a.address_id";
     return $conexion->query($sql)->fetchAll();
 }
-function insertarTienda($conexion, $datos){
-    $sql= "INSERT INTO store (manager_staff_id, address_id) VALUES (:gerente, :direccion)";
+
+function insertarTienda($conexion, $datos)
+{
+    $sql = "INSERT INTO store (manager_staff_id, address_id) VALUES (:gerente, :direccion)";
     return $conexion->prepare($sql)->execute($datos);
 }

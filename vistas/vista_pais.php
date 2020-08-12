@@ -1,80 +1,69 @@
 <?php include_once "componentes/comp_head.php" ?>
 <body>
 
-<!-- Barra superior -->
-
 <!-- Contenido -->
-
 <div class="">
     <div class="row">
-        <input type="checkbox" id="check">
-        <label for="check">
-            <i class="pulse" id="btn"><b class="fas fa-bars"></b></i>
-            <i class="fas fa-times" id="cancel"></i>
-        </label>
-        <div class="" id="sidebar">
-            <header>Sakila</header>
-            <?php include_once "componentes/comp_menu.php" ?>
-        </div>
-        <section class="cuerpo mt-2">
-            <div class="container">
-                <div class="col-md-7">
+        <?php include_once "componentes/comp_parte_menu.php" ?>
+        <div class="col-md-7 offset-md-2">
 
-                    <h3 id="espacio-titulo"><i class="fas fa-flag"></i> <?php echo $nombrePagina; ?> </h3>
-                    <hr>
-                    <div class="row">
-                        <div class="col-md-5">
-                            <form action="pais.php" method="post">
-                                <div class="mb-3">
-                                    <label for="pais">País: </label>
-                                    <input type="text" name="pais" id="pais" class="form-control"
-                                           placeholder="Digite el país">
-                                </div>
+            <h3 id="espacio-titulo"> <?php echo $nombrePagina; ?> </h3>
+            <hr>
+            <div class="row">
+                <div class="col-md-5">
+                    <form action="pais.php" method="post">
+                        <input type="hidden" name="idPais" value="<?= $idPais ?>">
 
-                                <div class="mb-3">
-                                    <button type="submit" name="guardarPais" class="btn green accent-4">Guardar</button>
-                                </div>
-
-                            </form>
-
+                        <!--Inputs Formulario-->
+                        <div class="mb-3">
+                            <label for="pais">País: </label>
+                            <input type="text" name="nombrePais" id="nombrePais" class="form-control"
+                                   value="<?= $nombrePais ?>"  placeholder="Digite el país">
                         </div>
 
-                    </div>
-                    <?php
-                    if (isset($mensaje)) {
-                        echo "<div class=\"alert alert-danger\" role=\"alert\">
-                                       {$mensaje}
-                                </div>";
-                    }
-                    ?>
-
-                    <div class="row">
-                        <div class="col-md-10">
-                            <hr>
-                            <table class="table centered">
-                                <thead>
-                                <th scope="col">ID</th>
-                                <th scope="col">Ciudad</th>
-                                </thead>
-                                <tbody>
-                                <?php
-                                foreach ($paises as $pais) {
-                                    echo "<tr>
-                            <th scope=\"row\">{$pais['country_id']}</th>
-                           <td>{$pais['country']}</td>
-                       </tr>";
-                                }
-                                ?>
-                                </tbody>
-                            </table>
+                        <!--Boton Guardar-->
+                        <div class="mb-3">
+                            <button type="submit" name="guardarPais" class="btn green accent-4">Guardar</button>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
-        </section>
+
+            <?php
+            include_once 'componentes/comp_partes_mensaje.php';
+            ?>
+
+            <div class="row">
+                <div class="col-md-10">
+                    <hr>
+                    <form action="" method="post">
+                        <table class="table centered">
+                            <thead>
+                            <th scope="col">ID </th>
+                            <th scope="col">Ciudad</th>
+                            <th scope="col">Acciones</th>
+                            </thead>
+                            <tbody>
+                            <?php
+                            foreach ($paises as $pais) {
+                                echo "<tr>
+                                        <th scope=\"row\">{$pais['country_id']}</th>
+                                        <td>{$pais['country']}</td>
+                                         <td>
+                                           <button type='submit' class='btn btn-primary btn-sm d50000 red accent-4' title='Eliminar pais'  name='eliminarPais'  value='{$pais['country_id']}'><i class='fas fa-trash'></i></button>
+                                           <button type='submit' class='btn btn-sm btn-danger ' title='Editar pais'  name='editarPais' value='{$pais['country_id']}'><i class='fas fa-pen'></i></button>
+                                         </td>
+                                     </tr>";
+                            }
+                            ?>
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-
-
+<?php include_once 'componentes/comp_foot.php' ?>
 </body>
 </html>

@@ -15,3 +15,24 @@ function insertarCiudades($conexion, $datos)
     $sql = 'insert into city (city, country_id) VALUES (:nombreCiudad, :idPais)';
     return $conexion->prepare($sql)->execute($datos);
 }
+
+function eliminarCiudad($conexion, $datos)
+{
+    $sql = " delete from city where city_id=:idCiudad";
+    return $conexion->prepare($sql)->execute($datos);
+}
+
+function obtenerCiudadPorId($conexion, $datos)
+{
+    $sql = "SELECT * FROM city where city_id = :idCiudad;";
+    $query = $conexion->prepare($sql);
+    $query->execute($datos);
+    return $query->fetch();
+}
+function editarCiudades($conexion, $datos)
+{
+    $sql = "UPDATE city SET city=:nombreCiudad, country_id = :idPais WHERE city_id = :idCiudad;";
+    return $conexion->prepare($sql)->execute($datos);
+}
+
+

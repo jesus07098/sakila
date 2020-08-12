@@ -11,13 +11,13 @@ $direccion = $_POST["direccion"] ?? "";
 $imagen = $_POST["imagen"] ?? "";
 $email = $_POST["email"] ?? "";
 $idTienda = $_POST["idTienda"] ?? "";
-if(isset($_POST["activo"])){
-    $activo=1;
-}else{
-    $activo=0;
+if (isset($_POST["activo"])) {
+    $activo = 1;
+} else {
+    $activo = 0;
 }
-$username= $_POST["username"] ?? "";
-$password= $_POST["password"] ?? "";
+$username = $_POST["username"] ?? "";
+$password = $_POST["password"] ?? "";
 
 try {
     if (isset($_POST['guardarPersonal'])) {
@@ -34,7 +34,7 @@ try {
             throw new Exception("La dirección está vacia");
         }
         if (empty($imagen)) {
-           // throw new Exception("La imagen del personal está vacio");
+            // throw new Exception("La imagen del personal está vacio");
         }
         if (empty($email)) {
             throw new Exception("El email está vacio");
@@ -59,7 +59,7 @@ try {
         //Insertar los datos
         $personalInsertado = insertarPersonal($conexion, $datos);
 
-        $mensaje="Datos insertados correctamente...";
+        $_SESSION['mensaje'] = "Datos insertados correctamente...";
         if (!$personalInsertado) {
             throw new Exception("Ocurrió un error al insertar los datos del actor");
         }

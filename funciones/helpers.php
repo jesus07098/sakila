@@ -1,5 +1,8 @@
 <?php
 
+if (session_status() == 1) {
+    session_start();
+}
 
 function incluir_vista($nombre)
 {
@@ -16,4 +19,13 @@ function imprimirArray($array)
 function redireccionar($ruta)
 {
     header("Location: {$ruta}", true, 303);
+}
+
+if (session_status() === 2) {
+    $mensaje = $_SESSION['mensaje'] ?? "";
+
+
+    if (isset($_SESSION['mensaje'])) {
+        unset($_SESSION['mensaje']);
+    }
 }

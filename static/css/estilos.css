@@ -23,7 +23,7 @@
 }
 
 #sidebar header {
-   
+
     font-size: 28px;
     color: white;
     line-height: 70px;
@@ -111,6 +111,11 @@ label #cancel {
 
 }
 
+.des {
+    z-index: 2;
+}
+
+
 section.cuerpo {
 
     -webkit-transition: all .5s;
@@ -173,4 +178,14 @@ thead tr th {
         opacity: 1;
         visibility: visible;
     }
+}
+
+
+/*Botones de acciones*/
+button.btn-estilo{
+    padding: 1px 8px 4px 8px;
+
+}
+i.i-acciones {
+ font-size: 15px;
 }

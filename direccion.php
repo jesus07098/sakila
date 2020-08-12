@@ -1,7 +1,7 @@
 <?php
 require_once "modelos/modelo_direccion.php";
 require_once "funciones/helpers.php";
-$nombrePagina = "Direcciones";
+$nombrePagina = "Dirección";
 //Incluir los modelos
 require_once "modelos/modelo_ciudad.php";
 $ciudades = obtenerCiudades($conexion);
@@ -39,14 +39,12 @@ try {
         if (empty($telefono)) {
             throw new Exception("El campo teléfono está vacio");
         }
-        if (empty($activo)) {
-            //throw new Exception("El email está vacio");
-        }
+
         $datos = compact('direccion', 'direccion2', 'distrito', 'ciudad', 'codigoPostal', 'telefono');
         //Insertar los datos
         $direccionInsertada = insertarDireccion($conexion, $datos);
 
-        $mensajes="Datos insertados correctamente...";
+        $mensajes = "Datos insertados correctamente...";
         if (!$direccionInsertada) {
             throw new Exception("Ocurrió un error al insertar los datos de la dirección");
         }

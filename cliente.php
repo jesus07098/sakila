@@ -5,7 +5,7 @@ require_once "modelos/modelo_direccion.php";
 require_once "modelos/modelo_cliente.php";
 require_once "modelos/modelo_tienda.php";
 
-$nombrePagina = "Clientes";
+$nombrePagina = "Cliente";
 
 
 //variables insert
@@ -14,10 +14,10 @@ $nombre = $_POST['nombre'] ?? "";
 $apellido = $_POST['apellido'] ?? "";
 $email = $_POST['email'] ?? "";
 $direccion = $_POST['direccion'] ?? "";
-if(isset($_POST["activo"])){
-    $activo=1;
-}else{
-    $activo=0;
+if (isset($_POST["activo"])) {
+    $activo = 1;
+} else {
+    $activo = 0;
 }
 
 
@@ -45,13 +45,13 @@ try {
         }
 
 
-        $datos = compact('tienda','nombre', 'apellido', 'email', 'direccion', 'activo');
+        $datos = compact('tienda', 'nombre', 'apellido', 'email', 'direccion', 'activo');
 
 
         //Insertar los datos
         $clienteInsertado = insertarClientes($conexion, $datos);
 
-        $mensaje="Datos insertados correctamente...";
+        $_SESSION['mensaje'] = "Datos insertados correctamente...";
         if (!$clienteInsertado) {
             throw new Exception("Ocurrió un error al insertar los datos del cliente");
         }

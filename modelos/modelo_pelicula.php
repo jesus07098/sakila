@@ -13,8 +13,12 @@ function obtenerInfoPeliculas($conexion)
 
     return $conexion->query($sql)->fetchAll();
 }
-function insertarPelicula($conexion, $datos){
-    $sql= 'INSERT INTO film (title, description, release_year, language_id, original_language_id, rental_duration, rental_rate, length, replacement_cost, rating, special_features) 
-    VALUES (:titulo, :descripcion, :anoLanzamiento, :idioma, :idioma2, :rentaDuracion, :tasaArrendamiento, :tamano, :costoReemplazo, :clasificacion, :caracteristicasEspeciales)';
+
+function insertarPelicula($conexion, $datos)
+{
+    $sql = 'INSERT INTO film (title, description, release_year, language_id, original_language_id, rental_duration, rental_rate, length, 
+                  replacement_cost, rating, special_features) 
+    VALUES (:titulo, :descripcion, :anoLanzamiento, :idioma, :idioma2, :rentaDuracion, :tasaArrendamiento, :tamano, :costoReemplazo, 
+            :clasificacion, :caracteristicasEspeciales)';
     return $conexion->prepare($sql)->execute($datos);
 }

@@ -7,75 +7,69 @@
 
 <div class="">
     <div class="row">
-        <input type="checkbox" id="check">
-        <label for="check">
-            <i class="fas fa-bars" id="btn"></i>
-            <i class="fas fa-times" id="cancel"></i>
-        </label>
-        <div class="" id="sidebar">
-            <header> Sakila</header>
-            <?php include_once "componentes/comp_menu.php" ?>
-        </div>
-        <section class="cuerpo mt-2">
-            <div class="container">
-                <div class="col-md-7">
-                    <h3 id="espacio-titulo"> <?php echo $nombrePagina; ?> </h3>
-                    <hr>
-                    <div class="row">
-                        <div class="col-md-5">
-                            <form action="categoria.php" method="post">
-                                <div class="mb-3">
-                                    <label for="nombreCategoria">Nombre: </label>
-                                    <input type="text" name="nombreCategoria" id="nombreCategoria" class="form-control"
-                                           placeholder="Digite la categoría">
-                                </div>
+        <?php include_once "componentes/comp_parte_menu.php" ?>
+        <div class="col-md-7 offset-md-2">
+            <h3 id="espacio-titulo"> <?php echo $nombrePagina; ?> </h3>
+            <hr>
+            <div class="row">
+                <div class="col-md-5">
+                    <form action="categoria.php" method="post">
+                        <input type="hidden" name="idCategoria" value="<?= $idCategoria ?>">
+                        <div class="mb-3">
+                            <label for="nombreCategoria">Nombre: </label>
+                            <input type="text" name="nombreCategoria" id="nombreCategoria" class="form-control"
+                                   value="<?= $nombreCategoria ?>" placeholder="Digite la categoría">
+                        </div>
 
-                                <div class="mb-3">
-                                    <button type="submit" name="guardarCategoria" class="btn teal green accent-4">
-                                        Guardar
-                                    </button>
-                                </div>
+                        <div class="mb-3">
+                            <button type="submit" name="guardarCategoria" class="btn teal green accent-4">
+                                Guardar
+                            </button>
+                        </div>
+                    </form>
+                    <?php
+                    include_once "componentes/comp_partes_mensaje.php"
+                    ?>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-12">
 
-                            </form>
+                    <form action="" method="post">
+                        <table class="table">
+                            <thead>
+                            <th scope="col">ID</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Acciones</th>
+                            </thead>
+                            <tbody>
                             <?php
-                            if (isset($error)) {
-                                echo "<div class=\"alert alert-danger alert-dismissible fade show\" role=\"alert\">
-                                  {$error}
-                                  <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
-                                    <span aria-hidden=\"true\">&times;</span>
-                                  </button>
-                                </div>";
+                            foreach ($categorias as $categoria) {
+                                echo "<tr>
+                                                       <th scope=\"row\">{$categoria['category_id']}</th>
+                                                      <td>{$categoria['name']}</td>
+                                                 <td>
+                           <button type='submit' class='btn btn-primary btn-sm d50000 red accent-4' title='Eliminar categoria'  
+                           name='eliminarCategoria'  value='{$categoria['category_id']}'><i class='fas fa-trash'></i></button>
+                           
+                           <button type='submit' class='btn btn-sm btn-danger ' title='Editar categoria'  name='editarCategoria' 
+                           value='{$categoria['category_id']}'><i class='fas fa-pen'></i></button>
+                           </td>
+                                                  </tr>";
                             }
                             ?>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <table class="table">
-                                <thead>
-                                <th scope="col">ID</th>
-                                <th scope="col">Nombre</th>
-                                </thead>
-                                <tbody>
-                                <?php
-                                foreach ($categorias as $categoria) {
-                                    echo "<tr>
-                            <th scope=\"row\">{$categoria['category_id']}</th>
-                           <td>{$categoria['name']}</td>
-                       </tr>";
-                                }
-                                ?>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+
+                            </tbody>
+                        </table>
+                    </form>
                 </div>
-        </section>
+            </div>
+        </div>
     </div>
 
 </div>
 
-
+<?php require_once "componentes/comp_foot.php" ?>
 </body>
 </html>

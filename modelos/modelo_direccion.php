@@ -15,8 +15,11 @@ function obtenerInfoDirecciones($conexion)
      from address as ad left join city as cy on ad.city_id=cy.city_id";
     return $conexion->query($sql)->fetchAll();
 }
-function insertarDireccion($conexion, $datos){
 
-    $sql= "INSERT INTO address (address, address2, district, city_id, postal_code, phone) VALUES (:direccion,:direccion2, :distrito, :ciudad ,:codigoPostal, :telefono)";
+function insertarDireccion($conexion, $datos)
+{
+
+    $sql = "INSERT INTO address (address, address2, district, city_id, postal_code, phone) VALUES (:direccion,:direccion2, :distrito, :ciudad ,:codigoPostal, :telefono)";
     return $conexion->prepare($sql)->execute($datos);
+
 }

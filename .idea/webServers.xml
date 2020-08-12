@@ -2,7 +2,7 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="ae52cbaf-cf24-4258-9548-8207a181b95d" name="Mi servidor en 000webhost" url="http://files.000webhost.com">
+      <webServer id="ae52cbaf-cf24-4258-9548-8207a181b95d" name="Mi servidor en 000webhost" url="http://localhost">
         <fileTransfer host="files.000webhost.com" port="21">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
