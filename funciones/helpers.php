@@ -24,7 +24,6 @@ function redireccionar($ruta)
 if (session_status() === 2) {
     $mensaje = $_SESSION['mensaje'] ?? "";
 
-
     if (isset($_SESSION['mensaje'])) {
         unset($_SESSION['mensaje']);
     }

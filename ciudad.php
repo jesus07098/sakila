@@ -57,7 +57,6 @@ try {
         $datos = compact('idCiudad');
 
         //Eliminar
-        imprimirArray($_POST);
         $eliminado = eliminarCiudad($conexion, $datos);
         $_SESSION['mensaje'] = "Datos eliminados correctamente";
         if (!$eliminado) {

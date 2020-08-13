@@ -5,7 +5,7 @@ require_once "config/conexion.php";
 function obtenerCiudades($conexion)
 {
     $sql = "SELECT ci.city_id, ci.city, co.country 
-          FROM city as ci INNER JOIN country as co ON ci.country_id=co.country_id";
+          FROM city as ci INNER JOIN country as co ON ci.country_id=co.country_id ORDER BY ci.city_id DESC";
     return $conexion->query($sql)->fetchAll();
 
 }
@@ -18,7 +18,8 @@ function insertarCiudades($conexion, $datos)
 
 function eliminarCiudad($conexion, $datos)
 {
-    $sql = " delete from city where city_id=:idCiudad";
+    $sql = "UPDATE address SET city_id = 1 WHERE city_id = :idCiudad;
+            DELETE FROM city WHERE city_id = :idCiudad;";
     return $conexion->prepare($sql)->execute($datos);
 }
 

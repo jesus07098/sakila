@@ -14,6 +14,7 @@ try {
     //guardar actor
     if (isset($_POST['guardarActor'])) {
         //codigo para guardar en la BD
+
         if (empty($nombreActor)) {
             throw new Exception("El nombre del actor está vacio");
         }
@@ -21,9 +22,12 @@ try {
             throw new Exception("El apellido del actor está vacio");
         }
         $datos = compact('nombreActor', 'apellidoActor');
+        $prueba= obtenerActoresPorNombre($conexion, $datos);
+          echo $prueba;
 
         //Insertar los datos
         if (empty($idActor)) {
+
             $actorInsertado = insertarActores($conexion, $datos);
             $_SESSION['mensaje'] = "Datos insertados correctamente...";
             if (!$actorInsertado) {

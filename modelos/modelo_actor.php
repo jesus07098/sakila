@@ -48,5 +48,14 @@ function editarActores($conexion, $datos)
     $sql = "UPDATE actor SET first_name=:nombreActor, last_name = :apellidoActor WHERE actor_id = :idActor ;";
     return $conexion->prepare($sql)->execute($datos);
 }
+function obtenerActoresPorNombre($conexion, $datos)
+{
+
+    $sql = "SELECT COUNT(*) FROM actor where first_name = :nombreActor;";
+    $query = $conexion->prepare($sql);
+    $query->execute($datos);
+    return $query->fetch();
+}
+
 
 

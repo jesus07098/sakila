@@ -80,8 +80,8 @@ include_once "componentes/comp_head.php";
                            <td>{$ciudad['city']}</td>
                            <td>{$ciudad['country']}</td>
                            <td>
-                            <button type='submit' class='btn btn-primary btn-sm d50000 red accent-4' title='Eliminar ciudad'  name='eliminarCiudad'  value='{$ciudad['city_id']}'><i class='fas fa-trash'></i></button>
-                           <button type='submit' class='btn btn-sm btn-danger ' title='Editar ciudad'  name='editarCiudad' value='{$ciudad['city_id']}'><i class='fas fa-pen'></i></button>
+                            <button type='submit' class='btn btn-estilo btn-primary btn-sm d50000 red accent-4' title='Eliminar ciudad'  name='eliminarCiudad'  value='{$ciudad['city_id']}'><i class='fas fa-trash i-acciones'></i></button>
+                           <button type='submit' class='btn btn-estilo btn-sm btn-danger ' title='Editar ciudad'  name='editarCiudad' value='{$ciudad['city_id']}'><i class='fas fa-pen i-acciones'></i></button>
                            </td>
                        </tr>";
                         }

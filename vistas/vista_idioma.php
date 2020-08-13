@@ -47,8 +47,8 @@
                             <th scope=\"row\">{$idioma['language_id']}</th>
                             <td>{$idioma['name']}</td>
                           <td>
-                            <button type='submit' class='btn btn-primary btn-sm d50000 red accent-4' title='Eliminar idioma'  name='eliminarIdioma'  value='{$idioma['language_id']}'><i class='fas fa-trash'></i></button>
-                            <button type='submit' class='btn btn-sm btn-danger ' title='Editar idioma'  name='editarIdioma' value='{$idioma['language_id']}'><i class='fas fa-pen'></i></button>
+                            <button type='submit' class='btn btn-estilo btn-primary btn-sm d50000 red accent-4' title='Eliminar idioma'  name='eliminarIdioma'  value='{$idioma['language_id']}'><i class='fas fa-trash i-acciones'></i></button>
+                            <button type='submit' class='btn btn-estilo btn-sm btn-danger ' title='Editar idioma'  name='editarIdioma' value='{$idioma['language_id']}'><i class='fas fa-pen i-acciones'></i></button>
                           </td>
                         </tr>";
                         }

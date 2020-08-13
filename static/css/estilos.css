@@ -189,3 +189,7 @@ button.btn-estilo{
 i.i-acciones {
  font-size: 15px;
 }
+
+div a img{
+width: 0;
+}
