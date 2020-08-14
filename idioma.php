@@ -1,6 +1,7 @@
 <?php
 require_once "funciones/helpers.php";
 require_once 'modelos/modelo_idioma.php';
+
 $nombrePagina = "Idioma";
 
 $nombreIdioma = $_POST['nombreIdioma'] ?? "";
@@ -17,10 +18,20 @@ try {
 
         $datos = compact('nombreIdioma');
 
+        // Verificar que el gerente no tenga una tienda
+        $tieneIdioma = verificarIdiomaPorNombre($conexion, $datos);
+
+        if ($tieneIdioma['cantidad'] > 0) {
+            throw new Exception('Idioma ya insertado...');
+        }
+
+
         //Insertar los datos
         if (empty($idIdioma)) {
+
             $idiomaInsertado = insertarIdioma($conexion, $datos);
             $_SESSION['mensaje'] = "Datos insertados correctamente...";
+
             if (!$idiomaInsertado) {
                 throw new Exception("Ocurrió un error al insertar los datos del idioma");
             }
@@ -32,18 +43,15 @@ try {
 
             //Actualizar datos
             $idiomaEditado = editarIdioma($conexion, $datos);
-
             $_SESSION['mensaje'] = "Datos modificados correctamente...";
 
             if (!$idiomaEditado) {
                 throw new Exception("Ocurrió un error al modificar los datos...");
             }
-
         }
         redireccionar("idioma.php");
     }
-    //redireccionar la pagina
-//eliminar idioma
+    //eliminar idioma
     if (isset($_POST['eliminarIdioma'])) {
 
         $idIdioma = $_POST['eliminarIdioma'] ?? "";
@@ -54,8 +62,6 @@ try {
 
         //preparar array
         $datos = compact('idIdioma');
-
-        imprimirArray($datos);
 
         //Eliminar
         $eliminado = eliminarIdioma($conexion, $datos);
@@ -85,13 +91,10 @@ try {
 
     }
 
-
 } catch (Exception $e) {
     $error = $e->getMessage();
 }
 
-
 $idiomas = obtenerIdioma($conexion);
-
 
 include_once "vistas/vista_idioma.php";

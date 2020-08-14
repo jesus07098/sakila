@@ -15,18 +15,23 @@ $idCiudad = $_POST['idCiudad'] ?? "";
 try {
     //guardar actor
     if (isset($_POST['guardarCiudad'])) {
+
         //codigo para guardar en la BD
         if (empty($nombreCiudad)) {
             throw new Exception("El campo ciudad está vacio");
         }
+
         if (empty($idPais)) {
             throw new Exception("No ha seleccionado un país");
         }
+
         $datos = compact('nombreCiudad', 'idPais');
+
         //Insertar los datos
         if (empty($idCiudad)) {
             $ciudadInsertada = insertarCiudades($conexion, $datos);
             $_SESSION['mensaje'] = "Datos insertados correctamente...";
+
             if (!$ciudadInsertada) {
                 throw new Exception("Ocurrió un error al insertar los datos de la ciudad");
             }
@@ -49,16 +54,20 @@ try {
 
     //eliminar actor
     if (isset($_POST['eliminarCiudad'])) {
+
         $idCiudad = $_POST['eliminarCiudad'] ?? "";
+
         if (empty($idCiudad)) {
             throw new Exception("El valor del id está vacío");
         }
+
         //preparar array
         $datos = compact('idCiudad');
 
         //Eliminar
         $eliminado = eliminarCiudad($conexion, $datos);
         $_SESSION['mensaje'] = "Datos eliminados correctamente";
+
         if (!$eliminado) {
             throw new Exception("No se pudieron eliminar los datos");
         }
@@ -67,25 +76,24 @@ try {
 
     //editar actor
     if (isset($_POST['editarCiudad'])) {
+
         $idCiudad = $_POST['editarCiudad'] ?? "";
+
         if (empty($idCiudad)) {
             throw new Exception("El valor del id está vacío");
         }
+
         $datos = compact('idCiudad');
         $resultado = obtenerCiudadPorId($conexion, $datos);
         $nombreCiudad = $resultado['city'];
         $idPais = $resultado['country_id'];
-
-
     }
 
 } catch (Exception $e) {
     $error = $e->getMessage();
 }
 
-
 $paises = obtenerPaises($conexion);
 $ciudades = obtenerCiudades($conexion);
-
 
 include_once "vistas/vista_ciudad.php";

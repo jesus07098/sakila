@@ -1,10 +1,7 @@
 <?php include_once "componentes/comp_head.php" ?>
 <body>
 
-<!-- Barra superior -->
-
 <!-- Contenido -->
-
 <div class="">
     <div class="row">
         <?php include_once "componentes/comp_parte_menu.php" ?>
@@ -107,16 +104,18 @@
 
                             <div class="mb-3">
                                 <label for="caracteristicasEspeciales">Característica Especial: </label>
+
                                 <select name="caracteristicasEspeciales[]" id="caracteristicasEspeciales"
                                         class="form-select" multiple>
                                     <option value="" disabled selected>Elige una Caracteristica Especial</option>
-                                    <?php
-                                    $features = ['Trailers', 'Commentaries', 'Deleted Scenes', 'Behind the Scenes'];
-                                    foreach ($features as $feature) {
-                                        echo "<option value=\"{$feature}\" >{$feature}</option>";
-                                    }
-                                    ?>
+                                            <?php
+                                            $features = ['Trailers', 'Commentaries', 'Deleted Scenes', 'Behind the Scenes'];
+                                            foreach ($features as $feature) {
+                                                echo "<option value=\"{$feature}\" >{$feature}</option>";
+                                            }
+                                            ?>
                                 </select>
+
                             </div>
 
                             <div class="mb-3">
@@ -124,10 +123,9 @@
                                 </button>
                             </div>
                         </form>
+
                     </div>
-                    <?php
-                    include_once 'componentes/comp_partes_mensaje.php';
-                    ?>
+                    <?php include_once 'componentes/comp_partes_mensaje.php'; ?>
                 </div>
             </div>
 
@@ -135,48 +133,46 @@
                 <div class="col-md-10">
                     <table class="table">
                         <thead>
-                        <th scope="col">ID película</th>
-                        <th scope="col">Título</th>
-                        <th scope="col">Descripción 2</th>
-                        <th scope="col">Año lanzamiento</th>
-                        <th scope="col">Idioma principal</th>
-                        <th scope="col">Otro idioma</th>
-                        <th scope="col">Duración de alquiler</th>
-                        <th scope="col">Tasa de arrendamiento</th>
-                        <th scope="col">Tamaño</th>
-                        <th scope="col">Costo de reemplazo</th>
-                        <th scope="col">Clasificación</th>
-                        <th scope="col">Características especiales</th>
+                            <th scope="col">ID película</th>
+                            <th scope="col">Título</th>
+                            <th scope="col">Descripción 2</th>
+                            <th scope="col">Año lanzamiento</th>
+                            <th scope="col">Idioma principal</th>
+                            <th scope="col">Otro idioma</th>
+                            <th scope="col">Duración de alquiler</th>
+                            <th scope="col">Tasa de arrendamiento</th>
+                            <th scope="col">Tamaño</th>
+                            <th scope="col">Costo de reemplazo</th>
+                            <th scope="col">Clasificación</th>
+                            <th scope="col">Características especiales</th>
                         </thead>
+
                         <tbody>
                         <?php
                         foreach ($infoPeliculas as $infoPelicula) {
                             echo "<tr>
-                            <th scope=\"row\">{$infoPelicula['film_id']}</th>
-                           <td>{$infoPelicula['title']}</td>
-                           <td>{$infoPelicula['description']}</td>
-                           <td>{$infoPelicula['release_year']}</td>
-                           <td>{$infoPelicula['idioma_oficial']}</td>
-                           <td>{$infoPelicula['idioma_sec']}</td>
-                           <td>{$infoPelicula['rental_duration']}</td>
-                           <td>{$infoPelicula['rental_rate']}</td>
-                           <td>{$infoPelicula['length']}</td>
-                           <td>{$infoPelicula['replacement_cost']}</td>
-                           <td>{$infoPelicula['rating']}</td>
-                           <td>{$infoPelicula['special_features']}</td>    
+                                       <th scope=\"row\">{$infoPelicula['film_id']}</th>
+                                       <td>{$infoPelicula['title']}</td>
+                                       <td>{$infoPelicula['description']}</td>
+                                       <td>{$infoPelicula['release_year']}</td>
+                                       <td>{$infoPelicula['idioma_oficial']}</td>
+                                       <td>{$infoPelicula['idioma_sec']}</td>
+                                       <td>{$infoPelicula['rental_duration']}</td>
+                                       <td>{$infoPelicula['rental_rate']}</td>
+                                       <td>{$infoPelicula['length']}</td>
+                                       <td>{$infoPelicula['replacement_cost']}</td>
+                                       <td>{$infoPelicula['rating']}</td>
+                                       <td>{$infoPelicula['special_features']}</td>    
                              </tr>";
                         }
                         ?>
                         </tbody>
+
                     </table>
-
                 </div>
-
             </div>
         </div>
     </div>
 </div>
-
-
 </body>
 </html>

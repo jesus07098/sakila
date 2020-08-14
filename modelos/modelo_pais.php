@@ -11,9 +11,7 @@ function obtenerPaises($conexion)
 
 function insertarPaises($conexion, $datos)
 {
-
     $sql = "INSERT INTO country (country) VALUES (:nombrePais)";
-
     return $conexion->prepare($sql)->execute($datos);
 }
 

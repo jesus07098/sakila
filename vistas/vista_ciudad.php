@@ -1,15 +1,14 @@
 <?php
 include_once "componentes/comp_head.php";
-
 ?>
+
 <body>
-
-
 <!-- Contenido -->
-
 <div class="">
     <div class="row">
+
         <?php include_once "componentes/comp_parte_menu.php" ?>
+
         <div class="col-md-10 offset-md-2">
             <h4 id="espacio-titulo" class="offset-md-5"> <?php echo $nombrePagina; ?> </h4>
             <div class="row">
@@ -31,8 +30,8 @@ include_once "componentes/comp_head.php";
                                 <label for="pais">País: </label>
 
                                 <select name="pais" class="form-select" id="pais">
-                                    <option disabled>Seleccione un país:
-                                    </option>
+                                    <option disabled>Seleccione un país:</option>
+
                                     <?php
                                     foreach ($paises as $pais) {
                                         if ($pais['country_id'] == $idPais) {
@@ -43,6 +42,7 @@ include_once "componentes/comp_head.php";
                                         echo "<option value=\"{$pais['country_id']}\" {$seleccionado}>{$pais['country']}</option>";
                                     }
                                     ?>
+
                                 </select>
                             </div>
 
@@ -56,6 +56,7 @@ include_once "componentes/comp_head.php";
                         <?php
                         include_once 'componentes/comp_partes_mensaje.php';
                         ?>
+
                     </div>
                 </div>
 
@@ -71,19 +72,27 @@ include_once "componentes/comp_head.php";
                                 <th scope="col">Acciones</th>
                                 </thead>
                                 <tbody>
+
                                 <?php
                                 foreach ($ciudades as $ciudad) {
                                     echo "<tr>
-                            <th scope=\"row\">{$ciudad['city_id']}</th>
-                           <td>{$ciudad['city']}</td>
-                           <td>{$ciudad['country']}</td>
-                           <td>
-                            <button type='submit' class='btn btn-estilo btn-primary btn-sm d50000 red accent-4' title='Eliminar ciudad'  name='eliminarCiudad'  value='{$ciudad['city_id']}'><i class='fas fa-trash i-acciones'></i></button>
-                           <button type='submit' class='btn btn-estilo btn-sm btn-danger ' title='Editar ciudad'  name='editarCiudad' value='{$ciudad['city_id']}'><i class='fas fa-pen i-acciones'></i></button>
-                           </td>
-                       </tr>";
+                                               <th scope=\"row\">{$ciudad['city_id']}</th>
+                                               <td>{$ciudad['city']}</td>
+                                               <td>{$ciudad['country']}</td>
+                                               <td>
+                                                   <button type='submit' class='btn btn-estilo btn-primary btn-sm d50000 red accent-4' 
+                                                           title='Eliminar ciudad'  name='eliminarCiudad'  value='{$ciudad['city_id']}'>
+                                                           <i class='fas fa-trash i-acciones'></i>
+                                                   </button>
+                                                   <button type='submit' class='btn btn-estilo btn-sm btn-danger ' title='Editar ciudad'  
+                                                           name='editarCiudad' value='{$ciudad['city_id']}'>
+                                                           <i class='fas fa-pen i-acciones'></i>
+                                                   </button>
+                                               </td>
+                                           </tr>";
                                 }
                                 ?>
+
                                 </tbody>
                             </table>
                         </form>
@@ -93,6 +102,8 @@ include_once "componentes/comp_head.php";
         </div>
     </div>
 </div>
+
 <?php include_once 'componentes/comp_foot.php' ?>
+
 </body>
 </html>

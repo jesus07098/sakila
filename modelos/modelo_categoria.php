@@ -2,11 +2,14 @@
 
 require_once "config/conexion.php";
 
+
 function obtenerCategoria($conexion)
 {
     $sql = "SELECT * FROM category;";
     return $conexion->query($sql)->fetchAll();
 }
+
+
 
 function insertarCategoria($conexion, $datos)
 {
@@ -14,12 +17,16 @@ function insertarCategoria($conexion, $datos)
     return $conexion->prepare($sql)->execute($datos);
 }
 
+
+
 function eliminarCategoria($conexion, $datos)
 {
     $sql = "DELETE FROM film_category WHERE category_id = :idCategoria;
            DELETE FROM category WHERE category_id = :idCategoria;";
     return $conexion->prepare($sql)->execute($datos);
 }
+
+
 
 function obtenerCategoriasPorId($conexion, $datos)
 {

@@ -6,7 +6,6 @@ function obtenerDirecciones($conexion)
 {
     $sql = "SELECT address_id, address FROM address";
     return $conexion->query($sql)->fetchAll();
-
 }
 
 function obtenerInfoDirecciones($conexion)
@@ -18,8 +17,6 @@ function obtenerInfoDirecciones($conexion)
 
 function insertarDireccion($conexion, $datos)
 {
-
     $sql = "INSERT INTO address (address, address2, district, city_id, postal_code, phone) VALUES (:direccion,:direccion2, :distrito, :ciudad ,:codigoPostal, :telefono)";
     return $conexion->prepare($sql)->execute($datos);
-
 }

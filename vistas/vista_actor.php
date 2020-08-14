@@ -1,6 +1,6 @@
 <?php include_once "componentes/comp_head.php" ?>
-<body>
 
+<body>
 <!-- Contenido -->
 <div class="row">
     <?php include_once "componentes/comp_parte_menu.php" ?>
@@ -10,8 +10,10 @@
         <div class="row">
             <div class="col-md-11">
                 <hr>
+
                 <div class="card shadow-lg p-3 mb-5 bg-white ">
                     <div class="card-header bg-dark text-white font">Formulario de Actor</div>
+
                     <form action="actor.php" method="post">
                         <input type="hidden" name="idActor" value="<?= $idActor ?>">
                         <div class="input-field mb-3">
@@ -29,6 +31,7 @@
                             </button>
                         </div>
                     </form>
+
                     <?php
                     include_once 'componentes/comp_partes_mensaje.php';
                     ?>
@@ -41,7 +44,6 @@
 
                     <!--formulario -->
                     <form action="" method="post">
-
                         <table class="table table-responsive  table-bordered table-hover  striped centered">
                             <thead class="">
                             <th scope="col">ID</th>
@@ -49,6 +51,7 @@
                             <th scope="col">Apellido</th>
                             <th scope="col">Acciones</th>
                             </thead>
+
                             <tbody>
                             <?php
                             foreach ($actores as $actor) {
@@ -64,8 +67,10 @@
                             }
                             ?>
                             </tbody>
+
                         </table>
-                    </form>  <!--formulario -->
+                    </form>
+
                 </div>
             </div>
         </div>

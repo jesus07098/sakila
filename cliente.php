@@ -7,8 +7,6 @@ require_once "modelos/modelo_tienda.php";
 
 $nombrePagina = "Cliente";
 
-
-//variables insert
 $tienda = $_POST['tienda'] ?? "";
 $nombre = $_POST['nombre'] ?? "";
 $apellido = $_POST['apellido'] ?? "";
@@ -20,9 +18,9 @@ if (isset($_POST["activo"])) {
     $activo = 0;
 }
 
-
 try {
     if (isset($_POST['guardarCliente'])) {
+
         //codigo para guardar en la BD
         if (empty($tienda)) {
             throw new Exception("El campo tienda está vacio");
@@ -40,25 +38,18 @@ try {
         if (empty($direccion)) {
             throw new Exception("El campo de dirección no puede estar vacio");
         }
-        if (empty($activo)) {
-            //throw new Exception("El email está vacio");
-        }
-
 
         $datos = compact('tienda', 'nombre', 'apellido', 'email', 'direccion', 'activo');
 
-
         //Insertar los datos
         $clienteInsertado = insertarClientes($conexion, $datos);
-
         $_SESSION['mensaje'] = "Datos insertados correctamente...";
+
         if (!$clienteInsertado) {
             throw new Exception("Ocurrió un error al insertar los datos del cliente");
         }
         //redireccionar la pagina
         redireccionar('cliente.php');
-
-
     }
 } catch (Exception $e) {
     $error = $e->getMessage();

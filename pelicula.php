@@ -22,8 +22,7 @@ $caracteristicasEspeciales = $_POST['caracteristicasEspeciales'] ?? "";
 try {
     if (isset($_POST['guardarPelicula'])) {
 
-        $caracteristicasEspeciales = implode(",", $caracteristicasEspeciales);
-
+        $caracteristicasEspeciales = implode(",", $caracteristicasEspeciales); //array a cadena de texto
 
         if (empty($titulo)) {
             throw new Exception("El campo titulo no puede estar vacío");
@@ -32,24 +31,31 @@ try {
         if (empty($descripcion)) {
             throw new Exception("El campo descripción no puede estar vacío");
         }
+
         if (empty($anoLanzamiento)) {
             throw new Exception("El campo año de lanzamiento no puede estar vacío");
         }
+
         if (empty($idioma)) {
             throw new Exception("El campo idioma no puede estar vacío");
         }
+
         if (empty($idioma2)) {
             throw new Exception("El campo idioma original no puede estar vacío");
         }
+
         if (empty($rentaDuracion)) {
             throw new Exception("El campo duración de renta no puede estar vacío");
         }
+
         if (empty($tasaArrendamiento)) {
             throw new Exception("El campo tasa de arrendamiento no puede estar vacío");
         }
+
         if (empty($tamano)) {
             throw new Exception("El campo tamaño no puede estar vacío");
         }
+
         if (empty($tasaArrendamiento)) {
             throw new Exception("El campo tasa arrendamiento no puede estar vacío");
         }
@@ -61,31 +67,23 @@ try {
         if (empty($clasificacion)) {
             throw new Exception("El campo clasificación no puede estar vacío");
         }
-        if (empty($caracteristicasEspeciales)) {
-            // throw new Exception("El campo caracteristicas especiales no puede estar vacio");
-        }
-
 
         $datos = compact('titulo', 'descripcion', 'anoLanzamiento', 'idioma', 'idioma2', 'rentaDuracion', 'tasaArrendamiento', 'tamano', 'tasaArrendamiento', 'costoReemplazo', 'clasificacion', 'caracteristicasEspeciales');
 
         //Insertar los datos
         $insertadoPelicula = insertarPelicula($conexion, $datos);
-
         $_SESSION['mensaje'] = "Datos insertados correctamente...";
 
         if (!$insertadoPelicula) {
             throw new Exception("Ocurrió un error al insertar los datos de la pelicu;a...");
         }
 
-        //redireccionar la pagina
         redireccionar("pelicula.php");
-
     }
 } catch (Exception $e) {
     $error = $e->getMessage();
 }
 
-//traer datos
 $idiomas = obtenerIdioma($conexion);
 $infoPeliculas = obtenerInfoPeliculas($conexion);
 

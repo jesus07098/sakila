@@ -1,11 +1,10 @@
 <?php
+
 require_once "modelos/modelo_direccion.php";
 require_once "funciones/helpers.php";
-$nombrePagina = "Dirección";
-//Incluir los modelos
 require_once "modelos/modelo_ciudad.php";
-$ciudades = obtenerCiudades($conexion);
-$infoDirecciones = obtenerInfoDirecciones($conexion);
+
+$nombrePagina = "Dirección";
 
 $direccion = $_POST['direccion'] ?? "";
 $direccion2 = $_POST['direccion2'] ?? "";
@@ -15,12 +14,10 @@ $codigoPostal = $_POST['codigoPostal'] ?? "";
 $telefono = $_POST['telefono'] ?? "";
 $ubicacion = $_POST['ubicacion'] ?? "";
 
-
 try {
     if (isset($_POST['guardarDireccion'])) {
+
         //codigo para guardar en la BD
-
-
         if (empty($direccion)) {
             throw new Exception("El campo dirección principal está vacio");
         }
@@ -41,20 +38,22 @@ try {
         }
 
         $datos = compact('direccion', 'direccion2', 'distrito', 'ciudad', 'codigoPostal', 'telefono');
+
         //Insertar los datos
         $direccionInsertada = insertarDireccion($conexion, $datos);
-
         $mensajes = "Datos insertados correctamente...";
+
         if (!$direccionInsertada) {
             throw new Exception("Ocurrió un error al insertar los datos de la dirección");
         }
         //redireccionar la pagina
         redireccionar('direccion.php');
-
-
     }
 } catch (Exception $e) {
     $error = $e->getMessage();
 }
+
+$ciudades = obtenerCiudades($conexion);
+$infoDirecciones = obtenerInfoDirecciones($conexion);
 
 include_once "vistas/vista_direccion.php";

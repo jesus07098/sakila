@@ -7,12 +7,15 @@
     font-family: 'Montserrat', sans-serif;
 }
 
+/* Estilo para menos espacio entre letras de los titulos principales */
+
 #espacio-titulo {
     letter-spacing: -2px;
 
 }
 
-/* SIDEBAR ESTILOS */
+/* Estilos del sidebar */
+
 #sidebar {
     padding: 0;
     position: fixed;
@@ -112,11 +115,6 @@ label #cancel {
 
 }
 
-.des {
-    z-index: 2;
-}
-
-
 section.cuerpo {
 
     -webkit-transition: all .5s;
@@ -126,7 +124,8 @@ section.cuerpo {
     transition: all .5s;
 }
 
-/* ESTILO DE TABLAS*/
+/* Estilos de tablas */
+
 table {
 
 }
@@ -182,7 +181,8 @@ thead tr th {
 }
 
 
-/*Botones de acciones*/
+/*Estilos en Botones de acciones*/
+
 button.btn-estilo {
     padding: 1px 8px 4px 8px;
 
@@ -192,9 +192,7 @@ i.i-acciones {
     font-size: 15px;
 }
 
-.pruebaNav {
-    z-index: -1;
-}
+/* imagen de fondo inicio */
 
 .fondo-inicio{
     background-image: url("https://cflvdg.avoz.es/default/2018/02/13/00121518549513213948373/Foto/fotoweb.jpg");
@@ -203,3 +201,4 @@ i.i-acciones {
     background-attachment: fixed;
     background-size: 100% 100%;
 }
+

@@ -5,7 +5,7 @@ require_once 'modelos/modelo_pais.php';
 //Nombre de la pagina
 $nombrePagina = "País";
 
-//Variables de datos del pais
+
 $idPais = $_POST['idPais'] ?? "";
 $nombrePais = $_POST['nombrePais'] ?? "";
 
@@ -24,6 +24,7 @@ try {
             //Insertar los datos
             $paisInsertado = insertarPaises($conexion, $datos);
             $_SESSION['mensaje'] = "Datos insertados correctamente...";
+
             if (!$paisInsertado) {
                 throw new Exception("Ocurrió un error al insertar los datos del pais...");
             }
@@ -39,8 +40,6 @@ try {
                 throw new Exception("Ocurrio un error al modificar los datos...");
             }
         }
-
-        //redireccionar la pagina
         redireccionar("pais.php");
     }
     if (isset($_POST['eliminarPais'])) {
@@ -50,12 +49,12 @@ try {
         if (empty($idPais)) {
             throw new Exception("El valor del id está vacío");
         }
+
         //preparar array
         $datos = compact('idPais');
 
         //Eliminar
         $eliminado = eliminarPaises($conexion, $datos);
-
         $_SESSION['mensaje'] = "Datos eliminados correctamente";
 
         if (!$eliminado) {
@@ -65,13 +64,17 @@ try {
     }
 
     if (isset($_POST['editarPais'])) {
+
         $idPais = $_POST['editarPais'] ?? "";
+
         if (empty($idPais)) {
             throw new Exception("El valor del id está vacío");
         }
 
         $datos = compact('idPais');
+
         $resultado = obtenerPaisesPorId($conexion, $datos);
+
         $nombrePais = $resultado['country'];
         $_SESSION['mensaje'] = "Datos modificados correctamente";
         //redireccionar("actor.php");

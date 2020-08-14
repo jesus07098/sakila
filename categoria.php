@@ -24,6 +24,7 @@ try {
             //Insertar los datos
             $categoriaInsertada = insertarCategoria($conexion, $datos);
             $_SESSION['mensaje'] = "Datos insertados correctamente...";
+
             if (!$categoriaInsertada) {
                 throw new Exception("Ocurrió un error al insertar los datos de la categoría...");
             }
@@ -31,7 +32,7 @@ try {
 
             //Agregar el id en array datos
             $datos['idCategoria'] = $idCategoria;
-            imprimirArray($datos);
+
             //Actualizar datos
             $categoriaEditada = editarCategoria($conexion, $datos);
             $_SESSION['mensaje'] = "Datos modificados correctamente...";
@@ -40,7 +41,6 @@ try {
                 throw new Exception("Ocurrio un error al modificar los datos...");
             }
         }
-
         //redireccionar la pagina
         redireccionar("categoria.php");
     }
