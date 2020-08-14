@@ -22,16 +22,16 @@ define("DB_NAME", "sakila");
 */
 
 //Valores de mi base de datos de 000webhost//
-if($_SERVER['SERVER_NAME'] === 'rubycode.000webhostapp.com') {
+if ($_SERVER['SERVER_NAME'] === 'rubycode.000webhostapp.com') {
     $host = "localhost";
     $dbname = "id12551219_sakila";
     $usuario = "id12551219_jesus";
     $password = "_WZ]4s#pyN<GG-PQ";
 }
 
-try{
+try {
     $conexion = new PDO("mysql:host={$host}; dbname={$dbname}", $usuario, $password);
-}catch(PDOException $exception){
+} catch (PDOException $exception) {
     throw new Exception("Hubo un error al conectarnos a la base de datos: {$exception->getMessage()}");
     //array_push($errores, $exception -> getMessage());
 }

@@ -40,7 +40,7 @@ try {
             }
 
         }
-     redireccionar("idioma.php");
+        redireccionar("idioma.php");
     }
     //redireccionar la pagina
 //eliminar idioma

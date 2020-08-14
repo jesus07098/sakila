@@ -30,6 +30,7 @@ function obtenerCiudadPorId($conexion, $datos)
     $query->execute($datos);
     return $query->fetch();
 }
+
 function editarCiudades($conexion, $datos)
 {
     $sql = "UPDATE city SET city=:nombreCiudad, country_id = :idPais WHERE city_id = :idCiudad;";

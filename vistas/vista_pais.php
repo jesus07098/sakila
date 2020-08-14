@@ -5,27 +5,32 @@
 <div class="">
     <div class="row">
         <?php include_once "componentes/comp_parte_menu.php" ?>
-        <div class="col-md-7 offset-md-2">
+        <div class="col-md-10 offset-md-2">
 
-            <h3 id="espacio-titulo"> <?php echo $nombrePagina; ?> </h3>
-            <hr>
+            <h4 id="espacio-titulo" class="offset-md-4"> <?php echo $nombrePagina; ?> </h4>
+
             <div class="row">
-                <div class="col-md-5">
-                    <form action="pais.php" method="post">
-                        <input type="hidden" name="idPais" value="<?= $idPais ?>">
+                <div class="col-md-10">
+                    <hr>
+                    <div class="card shadow-lg p-3 mb-5 bg-white ">
+                        <div class="card-header bg-dark text-white font">Formulario
+                            de <?php echo $nombrePagina; ?></div>
+                        <form action="pais.php" method="post">
+                            <input type="hidden" name="idPais" value="<?= $idPais ?>">
 
-                        <!--Inputs Formulario-->
-                        <div class="mb-3">
-                            <label for="pais">País: </label>
-                            <input type="text" name="nombrePais" id="nombrePais" class="form-control"
-                                   value="<?= $nombrePais ?>"  placeholder="Digite el país">
-                        </div>
+                            <!--Inputs Formulario-->
+                            <div class="mb-3">
+                                <label for="pais">País: </label>
+                                <input type="text" name="nombrePais" id="nombrePais" class="form-control"
+                                       value="<?= $nombrePais ?>" placeholder="Digite el país">
+                            </div>
 
-                        <!--Boton Guardar-->
-                        <div class="mb-3">
-                            <button type="submit" name="guardarPais" class="btn green accent-4">Guardar</button>
-                        </div>
-                    </form>
+                            <!--Boton Guardar-->
+                            <div class="mb-3">
+                                <button type="submit" name="guardarPais" class="btn green accent-4">Guardar</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
 
@@ -35,11 +40,11 @@
 
             <div class="row">
                 <div class="col-md-10">
-                    <hr>
+
                     <form action="" method="post">
                         <table class="table centered">
                             <thead>
-                            <th scope="col">ID </th>
+                            <th scope="col">ID</th>
                             <th scope="col">Ciudad</th>
                             <th scope="col">Acciones</th>
                             </thead>

@@ -9,6 +9,7 @@
 
 #espacio-titulo {
     letter-spacing: -2px;
+
 }
 
 /* SIDEBAR ESTILOS */
@@ -182,14 +183,23 @@ thead tr th {
 
 
 /*Botones de acciones*/
-button.btn-estilo{
+button.btn-estilo {
     padding: 1px 8px 4px 8px;
 
 }
+
 i.i-acciones {
- font-size: 15px;
+    font-size: 15px;
 }
 
-div a img{
-width: 0;
+.pruebaNav {
+    z-index: -1;
+}
+
+.fondo-inicio{
+    background-image: url("https://cflvdg.avoz.es/default/2018/02/13/00121518549513213948373/Foto/fotoweb.jpg");
+    height: 1000px;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
 }

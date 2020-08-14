@@ -8,6 +8,7 @@
     <header>Sakila</header>
     <?php include_once "comp_menu.php" ?>
 </div>
+
 <section class="cuerpo mt-2">
 
     <div class="container">

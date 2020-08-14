@@ -4,15 +4,15 @@
 <!-- Barra superior -->
 
 <!-- Contenido -->
-
-<div class="">
-    <div class="row">
-        <?php include_once "componentes/comp_parte_menu.php" ?>
-        <div class="col-md-7 offset-md-2">
-            <h3 id="espacio-titulo"> <?php echo $nombrePagina; ?> </h3>
-            <hr>
-            <div class="row">
-                <div class="col-md-5">
+<div class="row">
+    <?php include_once "componentes/comp_parte_menu.php" ?>
+    <div class="col-md-9 offset-md-2">
+        <h4 id="espacio-titulo" class="offset-md-5"> <?php echo $nombrePagina; ?> </h4>
+        <div class="row">
+            <div class="col-md-12">
+                <hr>
+                <div class="card shadow-lg p-3 mb-5 bg-white ">
+                    <div class="card-header bg-dark text-white">Formulario de <?php echo $nombrePagina; ?></div>
                     <form action="idioma.php" method="post">
                         <input type="hidden" name="idIdioma" value="<?= $idIdioma ?>">
                         <div class="mb-3">
@@ -25,12 +25,12 @@
                             </button>
                         </div>
                     </form>
-                    <?php include_once "componentes/comp_partes_mensaje.php" ?>
                 </div>
+                <?php include_once "componentes/comp_partes_mensaje.php" ?>
             </div>
         </div>
 
-        <hr>
+
         <div class="row">
             <div class="col-md-12">
                 <form action="" method="post">
@@ -60,6 +60,7 @@
         </div>
     </div>
 </div>
+
 <?php include_once 'componentes/comp_foot.php' ?>
 </body>
 </html>

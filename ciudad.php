@@ -84,13 +84,6 @@ try {
 }
 
 
-
-
-
-
-
-
-
 $paises = obtenerPaises($conexion);
 $ciudades = obtenerCiudades($conexion);
 

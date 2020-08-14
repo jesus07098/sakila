@@ -22,8 +22,8 @@ try {
             throw new Exception("El apellido del actor está vacio");
         }
         $datos = compact('nombreActor', 'apellidoActor');
-        $prueba= obtenerActoresPorNombre($conexion, $datos);
-          echo $prueba;
+        $prueba = obtenerActoresPorNombre($conexion, $datos);
+        echo $prueba;
 
         //Insertar los datos
         if (empty($idActor)) {

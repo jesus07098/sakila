@@ -1,5 +1,7 @@
 <?php include_once "componentes/comp_head.php" ?>
+
 <body>
+  <div class="fondo-inicio" >
 <div>
     <div class="row">
         <!-- Contenido -->
@@ -12,9 +14,10 @@
             <header>Sakila</header>
             <?php include_once "componentes/comp_menu.php" ?>
         </div>
-        <div class="col-md-9">
-        </div>
+
+  </div>
     </div>
 </div>
+<?php include_once "componentes/comp_foot.php" ?>
 </body>
 </html>
